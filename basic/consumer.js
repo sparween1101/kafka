@@ -1,8 +1,8 @@
 const { Kafka } = require("kafkajs")
-
+run();
 async function run() {
     try {
-        console.log("Here we are starting !")
+        console.log("Starting consumer!")
         const kafka = new Kafka({
             "clientId": "myapp",
             "brokers": ["localhost:9092"]
@@ -14,8 +14,7 @@ async function run() {
         console.log("Consuming");
         await consumer.subscribe({
             "topic": "Users",
-            fromBeginning: true,
-            
+            fromBeginning: true  
         })
 
         await consumer.run({
@@ -30,5 +29,3 @@ async function run() {
 
     }
 }
-
-run();

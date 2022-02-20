@@ -1,8 +1,8 @@
 const {Kafka} = require("kafkajs")
-
+run();
 async function run(){
     try{
-        console.log("Here we are starting !")
+        console.log("Create new kafka topic!!")
         const kafka = new Kafka({
             "clientId": "myapp",
             "brokers": ["localhost:9092"]
@@ -29,4 +29,3 @@ async function run(){
     }
 }
 
-run();

@@ -1,10 +1,10 @@
 const {Kafka} = require("kafkajs")
 
 const msg = process.argv[2];
-
+run();
 async function run(){
     try{
-        console.log("Here we are starting !")
+        console.log("Starting producer!!")
         const kafka = new Kafka({
             "clientId": "myapp",
             "brokers": ["localhost:9092"]
@@ -14,7 +14,7 @@ async function run(){
         console.log("Connecting...");
         await producer.connect()
         console.log("Sending");
-         //A-M 0, N-Z 1 
+         //A-M ->0, N-Z->1 
         const partition = msg[0] < "N"? 0 : 1;
         const result = await producer.send({
             "topic": "Users",
@@ -33,5 +33,3 @@ async function run(){
        process.exit();
     }
 }
-
-run();
