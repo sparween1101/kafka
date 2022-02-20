@@ -64,7 +64,7 @@ Produce a message
 node producer.js Zebra
 ```
 
-Consumer
+Start the consumer
 ```
 node consumer.js
 ```
